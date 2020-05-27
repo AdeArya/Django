@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Group
+from django.contrib.auth.decorators import login_required
+
 
 def index(request):
     context = {
@@ -30,9 +32,16 @@ def loginViews(request):
         if user is not None:
             login(request, user)
             return redirect('blog:home-blog')
+        else:
+            return redirect('login')
 
-    return render(request, 'login.html', context)
+    if request.method == 'GET':
+        if request.user.is_authenticated:
+            return redirect('blog:home-blog')
+        else:
+            return render(request, 'login.html', context)
 
+@login_required
 def logoutViews(request):
     context = {
         'page_title': 'logout'.upper()
