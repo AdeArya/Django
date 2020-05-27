@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <title>
+            {{page_title}}
+        </title>
+    </head>
+    <body>
+        {{page_title}}
+        {% for i in object_list %}
+            <h3><a href=" {% url 'blog:detail' i.slug %} ">{{i.nama}}</a></h3>
+            <p>{{i.quotes}}</p>
+        {% endfor %}
+    </body>
+</html>

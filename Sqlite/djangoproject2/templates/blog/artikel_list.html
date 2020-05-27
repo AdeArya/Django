@@ -1,0 +1,50 @@
+<html>
+    
+    <head>
+    
+        <title>
+    
+            {{page_title}}
+    
+        </title>
+    
+    </head>
+    
+    <body>
+
+        <h1>{{page_title}}</h1>  
+        
+        <ol>
+            {% for artikel in object_list %}
+
+                <h3>{{artikel.judul}}</h3>
+
+            {% endfor %}
+        </ol>
+
+        {% if is_paginated %}
+
+        <!--previous page button-->
+            {% if page_obj.has_previous %}
+                <a href="{% url 'blog:index' page_obj.previous_page_number %}"><button>&laquo</button></a>
+            {% else %}
+                <a href=""><button>&laquo</button></a>
+            {% endif %}
+
+        <!--range page button--> page button-->
+            {% for i in paginator.page_range %}
+                <a href=" {% url 'blog:index' i %} ">{{i}}</a>
+            {% endfor %}
+
+        <!--next page button-->
+            {% if page_obj.has_next %}
+                <a href="{% url 'blog:index' page_obj.next_page_number %}"><button>&raquo</button></a>
+            {% else %}
+                <a href=""><button>&raquo</button></a>
+            {% endif%}
+
+        {% endif %}
+
+    </body>
+
+</html>

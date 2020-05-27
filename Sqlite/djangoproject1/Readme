@@ -1,0 +1,4 @@
+project django 3.0
+
+1. class based view dengan TemplateView
+2. database dengan sqlite3

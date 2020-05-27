@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{page_title}}</title>
+</head>
+<body>
+    <h2><button><a href="{% url 'blog:create' %}">Tambah Artikel</a></button></h2>
+    <h1>{{page_title}}</h1>
+    {% for i in object_list%}
+        <h2>{{i.title}}</h2>
+        <p style="text-align: justify;">{{i.body}}</p>
+        <h5>create by: {{i.creator}}</h5>
+    {% endfor %}
+</body>
+</html>

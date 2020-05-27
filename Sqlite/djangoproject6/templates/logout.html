@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <title>
+            {{page_title}}
+        </title>
+    </head>
+    <body>
+        {{page_title}}
+
+        <h1>mau logout? </h1>
+        <form method="POST">
+            {% csrf_token %}
+            <input type="submit" name="logout">
+        </form>
+    </body>
+</html>

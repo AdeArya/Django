@@ -1,0 +1,5 @@
+class based view dengan ListView
+
+menampilkan output dari models.py
+membuat paginasi halaman
+
