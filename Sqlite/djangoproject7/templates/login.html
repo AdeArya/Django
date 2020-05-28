@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title>{{title}}</title>
+    </head>
+    <body>
+        <h1>{{title}}</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <label for="username">username: </label>
+            <input type="text" name="username" id="username">
+            <br>
+            <label for="password">password: </label>
+            <input type="text" name="password" id="password">
+            <br>
+            <button type="submit">login</button>
+        </form>
+    </body>
+</html>
